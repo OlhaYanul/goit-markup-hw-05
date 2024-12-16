@@ -356,6 +356,42 @@
             </div>
         </section>
 
+
+        <div class="modal-overlay">
+            <div class="modal">
+
+                <svg class="icon-box-modal" width="8" height="8">
+                    <use class="icon-modal" href="./images/icons.svg#icon-close"></use>
+                </svg>
+
+                <h3 class="text-modal">Leave your contacts and we will call you back</h3>
+
+                <form class="form-modal">
+                    <label for="label-name" class="text-label">Name</label>
+                    <input id="label-name" type="text" name="name" class="form-input" />
+                    <label for="label-phone" class="text-label">Phone</label>
+                    <input id="label-phone" type="tel" name="phone" class="form-input" />
+                    <label for="label-email" class="text-label">Email</label>
+                    <input id="label-email" type="email" name="email" class="form-input" />
+                    <label for="label-text" class="text-label">Comment</label>
+                    <textarea for="label-text" name="feedback" rows="5" class="form-input input-area"
+                        placeholder="Text input"></textarea>
+                </form>
+
+                <div class="accept-form">
+                    <input type="checkbox" value="agree" id="agree-check" />
+                    <p class="text-accept">I accept the terms and conditions of the <a href="" class="link"><span
+                                class="text-accept-link">Privacy
+                                Policy</span></a></p>
+                </div>
+
+                <button type="button" class="click-main-box">Send</button>
+
+
+            </div>
+        </div>
+
+
     </main>
 
     <footer class="box-footer">
@@ -402,6 +438,22 @@
                     </li>
                 </ul>
             </div>
+
+
+            <div class="footer-subscr-container">
+                <p class="social-text">Subcribe</p>
+                <form name="form-subscr" autocomplete="off" novalidate>
+                    <input type="email" name="email" class="input-subscr" placeholder="E-mail" autofocus />
+                    <button type="submit" class="subscr-button">
+                        <p class="subscr-text">Subcribe</p>
+                        <svg class="icons-small" width="24" height="20">
+                            <use class="icon-send" href="./images/icons.svg#icon-send"></use>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+
+
         </div>
     </footer>
 

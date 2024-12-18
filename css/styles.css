@@ -48,6 +48,14 @@ img {
     display: flex;
 }
 
+button {
+    font-family: inherit;
+    color: currentColor;
+}
+
+input {
+    font-family: inherit;
+}
 
 /* HEADER*/
 .link-main {
@@ -522,18 +530,6 @@ img {
 
 .footer-social-container .social-text {
     color: #FFFFFF;
-}
-
-
-
-/* FIFTH HW */
-button {
-    font-family: inherit;
-    color: currentColor;
-}
-
-input {
-    font-family: inherit;
 }
 
 .footer-subscr-container {

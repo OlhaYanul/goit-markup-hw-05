@@ -647,34 +647,38 @@ input {
     opacity: 1;
     pointer-events: auto;
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-overlay.is-open {
+    transform: opacity;
+    transform: visibility;
     opacity: 1;
     pointer-events: auto;
-    transform: opacity;
 }
 
 .modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 408px;
     min-height: 584px;
     max-height: 100%;
-    overflow-y: auto;
     border-radius: 4px;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px 0 rgba(0, 0, 0, 0.2);
     background: #fcfcfc;
-    padding: 24px;
+    padding: 72px 24px 24px 24px;
     justify-content: center;
     display: flex;
     flex-direction: column;
-
-    /*position: absolute;
-    top: 50%;
-    left: 50%; */
-
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-close-box {
+    position: absolute;
+    top: 24px;
+    right: 24px;
     width: 24px;
     height: 24px;
     border: 1px solid #e7e9fc;
@@ -686,23 +690,19 @@ input {
     fill: #2e2f42;
     stroke-width: 1px;
     stroke: rgba(0, 0, 0, 0.1);
-
-    /*position: absolute;
-    top: 24px;
-    right: 24px;*/
-
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 24px;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-close {
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-close-box:hover,
 .icon-close-box:focus {
-    transform: background-color;
-    transform: fill;
+    transform: background-color, fill, border;
     background-color: #404bbf;
     fill: #fff;
     border: none;
@@ -726,16 +726,19 @@ input {
 .text-label {
     font-weight: 400;
     font-size: 12px;
-    line-height: 1.16667;
+    line-height: 1.17;
     letter-spacing: 0.04em;
     color: #8e8f99;
+    display: block;
     margin-bottom: 4px;
-    margin-top: 0;
 }
 
-.input-box {
-    max-width: 360px;
-    margin-bottom: 8px;
+.input-form-box {
+    position: relative;
+    top: 50%;
+    left: 16px;
+    width: 18px;
+    height: 24px;
 }
 
 .form-input {
@@ -743,19 +746,35 @@ input {
     border-radius: 4px;
     width: 100%;
     height: 40px;
+    background-color: transparent;
+    outline: transparent;
     font-weight: 400;
     font-size: 12px;
-    line-height: 1.16667;
+    line-height: 1.17;
     letter-spacing: 0.04em;
     color: rgba(46, 47, 66, 0.4);
     padding: 8px 16px 8px 38px;
-    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    padding-left: 38px;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-input {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-box {
+    max-width: 360px;
+    margin-bottom: 8px;
 }
 
 .form-input:hover,
 .form-input:focus {
-    transform: border;
-    border: 1px solid #4d5ae5;
+    transform: border-color;
+    border-color: 1px solid #4d5ae5;
     font-weight: 400;
     font-size: 12px;
     line-height: 1.16667;
@@ -772,14 +791,6 @@ input {
 .input-box:focus {
     transform: fill;
     fill: #4d5ae5;
-}
-
-.icon-form-box {
-    position: absolute;
-    top: 50%;
-    left: 16px;
-    width: 18px;
-    height: 24px;
 }
 
 .input-box .text-area-box {
@@ -834,7 +845,7 @@ input {
     fill: transparent;
 }
 
-.accept-check:checked {
+input[type="checkbox"]:checked+span {
     background-color: #404bbf;
     border: none;
     fill: #F4F4FD;
